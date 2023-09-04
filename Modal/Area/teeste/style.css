@@ -1,0 +1,46 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 16pt;
+}
+h1 {
+    text-align: center;
+}
+.form {
+    border: solid 1px black;
+    border-radius: 20px;
+    width: 350px;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+iframe {
+    width: 500px;
+    height: 400px;
+}
+.form {
+    border: solid 1px black;
+    border-radius: 20px;
+    width: 350px;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

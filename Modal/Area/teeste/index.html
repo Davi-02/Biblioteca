@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com iFrame</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        #main-form {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        #iframe-container {
+            display: none;
+            text-align: center;
+        }
+
+        iframe {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-form">
+        <h1>Formulário Principal</h1>
+        <form id="user-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <div id="iframe-container">
+        <iframe id="embedded-iframe" src="formulario1.html" width="400" height="300"></iframe>
+    </div>
+
+    <script>
+        const mainForm = document.getElementById('main-form');
+        const userForm = document.getElementById('user-form');
+        const iframeContainer = document.getElementById('iframe-container');
+        const embeddedIframe = document.getElementById('embedded-iframe');
+
+        userForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Obtém os dados do formulário principal
+            const formData = new FormData(userForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+
+            // Constrói a URL do segundo formulário com base nos dados
+            const iframeSrc = `second_form.html?name=${name}&email=${email}`;
+
+            // Define a URL do iframe e exibe-o
+            embeddedIframe.src = iframeSrc;
+            iframeContainer.style.display = 'block';
+            mainForm.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
